@@ -1,6 +1,18 @@
 # Audio QA Dataset
 
 This repository contains a collection of audio clips along with annotated question-answer pairs stored in a structured metadata file.
+## 🔎 Dataset Explorer
+
+You can explore the dataset interactively at:
+
+**https://manchester.umiacs.umd.edu/audio**
+
+The explorer allows you to browse the dataset by:
+
+- Source dataset
+- Audio category
+- Individual question-answer examples
+- Associated audio files
 
 ## AUDITA
 
@@ -11,16 +23,30 @@ Tasnim Kabir, Dmytro Kurdydyk, Aadi Palnitkar, Liam Dorn, Ahmed Haj Ahmed, and J
 
 **Paper:** https://arxiv.org/abs/2604.21766
 
-If you use this dataset, please cite:
+If you use this dataset, please cite the published ACL Findings paper:
 
 ```bibtex
-@article{kabir2026audita,
-  title={AUDITA: A New Dataset to Audit Humans vs. AI Skill at Audio QA},
-  author={Kabir, Tasnim and Kurdydyk, Dmytro and Palnitkar, Aadi and Dorn, Liam and Ahmed, Ahmed Haj and Boyd-Graber, Jordan Lee},
-  journal={arXiv preprint arXiv:2604.21766},
-  year={2026}
+@inproceedings{kabir-etal-2026-audita,
+    title = "{AUDITA}: A New Dataset to Audit Humans vs. {AI} Skill at Audio {QA}",
+    author = "Kabir, Tasnim and
+      Kurdydyk, Dmytro and
+      Palnitkar, Aadi and
+      Dorn, Liam and
+      Ahmed, Ahmed Haj and
+      Boyd-Graber, Jordan Lee",
+    editor = "Liakata, Maria and
+      Moreira, Viviane P. and
+      Zhang, Jiajun and
+      Jurgens, David",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2026",
+    month = jul,
+    year = "2026",
+    address = "San Diego, California, United States",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.findings-acl.1292/",
+    pages = "25922--25951",
+    ISBN = "979-8-89176-395-1"
 }
-```
 
 ## 📁 Folder Structure
 
