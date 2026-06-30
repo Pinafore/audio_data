@@ -1,29 +1,33 @@
 # Audio QA Dataset
 
 This repository contains a collection of audio clips along with annotated question-answer pairs stored in a structured metadata file.
+
+## AUDITA
+
+This dataset accompanies the paper:
+
+**AUDITA: A New Dataset to Audit Humans vs. AI Skill at Audio QA**  
+Tasnim Kabir, Dmytro Kurdydyk, Aadi Palnitkar, Liam Dorn, Ahmed Haj Ahmed, and Jordan Lee Boyd-Graber (2026)
+
+- **ACL Findings 2026:** https://aclanthology.org/2026.findings-acl.1292/
+- **arXiv Preprint:** https://arxiv.org/abs/2604.21766
+
 ## 🔎 Dataset Explorer
 
 You can explore the dataset interactively at:
 
 **https://manchester.umiacs.umd.edu/audio**
 
-The explorer allows you to browse the dataset by:
+The explorer allows you to:
 
-- Source dataset
-- Audio category
-- Individual question-answer examples
-- Associated audio files
+- Browse questions by source dataset
+- Browse questions by audio category
+- Listen to audio clips
+- View question-answer pairs and metadata
 
-## AUDITA
+## Citation
 
-This dataset accompanies the paper:
-
-**AUDITA: A New Dataset to Audit Humans vs. AI Skill at Audio QA**
-Tasnim Kabir, Dmytro Kurdydyk, Aadi Palnitkar, Liam Dorn, Ahmed Haj Ahmed, and Jordan Lee Boyd-Graber (2026)
-
-**Paper:** https://arxiv.org/abs/2604.21766
-
-If you use this dataset, please cite the published ACL Findings paper:
+If you use this dataset, please cite the ACL Findings paper:
 
 ```bibtex
 @inproceedings{kabir-etal-2026-audita,
@@ -47,33 +51,47 @@ If you use this dataset, please cite the published ACL Findings paper:
     pages = "25922--25951",
     ISBN = "979-8-89176-395-1"
 }
+```
+
+If you wish to cite the preprint instead:
+
+```bibtex
+@article{kabir2026audita,
+  title={AUDITA: A New Dataset to Audit Humans vs. AI Skill at Audio QA},
+  author={Kabir, Tasnim and Kurdydyk, Dmytro and Palnitkar, Aadi and Dorn, Liam and Ahmed, Ahmed Haj and Boyd-Graber, Jordan Lee},
+  journal={arXiv preprint arXiv:2604.21766},
+  year={2026}
+}
+```
 
 ## 📁 Folder Structure
 
+```text
 .
-├── audio/             # Contains actual audio files referenced in the metadata
+├── audio/             # Contains the audio files referenced in the metadata
 └── combined.json      # Metadata with QA pairs and file references
+```
 
 ## 📄 File Descriptions
 
-### combined.json
+### `combined.json`
 
-A list of JSON objects, each representing a QA annotation for an audio file.
+A list of JSON objects, each representing a question-answer annotation for an audio file.
 
-## Human-Ready Unsplit Files Overview
+## Dataset Overview
 
-This dataset consists of unsplit, human-ready question-answer files, categorized as follows:
+This dataset consists of **9,690 human-ready question-answer pairs**, organized as follows.
 
 ### OUR Sources
 
 #### Quizbowl-style
 
-* Pavements: 673 questions
-* Audio-Packets: 1,649 questions
+- Pavements: **673** questions
+- Audio-Packets: **1,649** questions
 
 #### Trivia-style
 
-* Quizmasters: 4,138 questions
+- Quizmasters: **4,138** questions
 
 **Subtotal (OUR): 6,460 questions**
 
@@ -81,12 +99,12 @@ This dataset consists of unsplit, human-ready question-answer files, categorized
 
 #### Close-Ended Questions
 
-* OpenAQA: 882 questions
-* ClothoAQA: 323 questions
+- OpenAQA: **882** questions
+- ClothoAQA: **323** questions
 
 #### Open-Ended Questions
 
-* OpenAQA: 2,025 questions
+- OpenAQA: **2,025** questions
 
 **Subtotal (EXTERNAL): 3,230 questions**
 
@@ -94,17 +112,19 @@ This dataset consists of unsplit, human-ready question-answer files, categorized
 
 **Total Human-Ready Questions: 9,690**
 
-Each entry contains:
+## Metadata Fields
 
-| Field         | Description                                               |
-| ------------- | --------------------------------------------------------- |
-| question      | The question posed about the audio content                |
-| dataset       | The source dataset (e.g., clotho_aqa)                     |
-| file_name     | Path to the corresponding audio file                      |
-| task          | Type of task (e.g., closed_ended, open_ended)             |
-| ground_truth  | The correct answer to the question                        |
-| Categories    | High-level category of the sound (e.g., Character/Person) |
-| Subcategories | More specific label (or N/A if not applicable)            |
+Each entry in `combined.json` contains the following fields:
+
+| Field | Description |
+|------|-------------|
+| `question` | The question posed about the audio content |
+| `dataset` | Source dataset (e.g., `clotho_aqa`) |
+| `file_name` | Path to the corresponding audio file |
+| `task` | Question type (`closed_ended` or `open_ended`) |
+| `ground_truth` | The correct answer |
+| `Categories` | High-level category (e.g., `Character/Person`) |
+| `Subcategories` | More specific category label (or `N/A`) |
 
 ### Example Entry
 
@@ -120,8 +140,8 @@ Each entry contains:
 }
 ```
 
-**Note:** Only the actual audio files (e.g., `Backyard nature.wav` or `123456.flac`) are placed in the `audio/` folder. You do not need to search the full path listed in `file_name`. Just extract the final filename from the path and look for it in the `audio/` directory.
+> **Note:** Only the final audio files (e.g., `Backyard nature.wav` or `123456.flac`) are stored in the `audio/` directory. The `file_name` field contains the original source path; simply extract the filename and locate it in the `audio/` folder.
 
-### audio/ folder
+### `audio/`
 
-This folder contains only the final audio files referenced in `combined.json`, in `.wav` or `.flac` format.
+This directory contains all audio files referenced by `combined.json` in `.wav` or `.flac` format.
